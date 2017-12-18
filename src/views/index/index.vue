@@ -1,7 +1,9 @@
 <template>
 	<div id="app">
 		<div>
+			<div :style="{backgroundImage: 'url(./static/images/bg.jpg)'}">dadddad</div>
 			<divider>多页面 vue-router 2</divider>
+			<!-- <img src="../../assets/images/bg.jpg" alt=""> -->
 		    <group>
 				<cell title="多页面路由" value="" is-link link="./router.html"></cell>
 			</group>
@@ -26,10 +28,9 @@ export default {
 		Divider
 	},
 	mounted(){
-		console.log($.ajax())
+		
 	},
 	methods: {
-
 	}
 }
 </script>
