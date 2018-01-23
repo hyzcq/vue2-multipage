@@ -89,7 +89,7 @@ exports.getMultiEntry = function (globPath) {
 	}
 	// console.log(pathsrc)
     // pathname = pathsrc + '/' + basename; // 正确输出js和html的路径
-    pathname = basename;
+    pathname = tmp[2];
     entries[pathname] = entry;
     
     // console.log(pathname+'-----------'+entry);

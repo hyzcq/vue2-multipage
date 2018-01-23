@@ -2,7 +2,7 @@
 
 ## 安装
  安装需配置node环境，node>= 4.0.0,npm >= 3.0.0.
- 项目根目录执行npm install, 一般国内npm安装较慢，配置过淘宝镜像可执行cnpm installj进行安装
+ 项目根目录执行npm install, 一般国内npm安装较慢，配置过淘宝镜像可执行cnpm install进行安装
 ## 编译
   npm run dev
 ## 打包

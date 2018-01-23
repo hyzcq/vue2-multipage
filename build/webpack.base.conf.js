@@ -2,6 +2,7 @@ var path = require('path')
 var utils = require('./utils')
 var webpack = require('webpack')
 var config = require('../config')
+var vuxLoader = require('vux-loader')
 
 var glob = require('glob');
 var entries =  utils.getMultiEntry('./src/'+config.moduleName+'/**/*.js'); // 获得入口js文件
@@ -81,9 +82,9 @@ var webpackConfig = {
 
 module.exports = webpackConfig;
 
-// vuxLoader.merge(webpackConfig, {
-//   options: {
+vuxLoader.merge(webpackConfig, {
+  options: {
     
-//   },	
-//   plugins: ['vux-ui', 'progress-bar', 'duplicate-style']
-// })
+  },	
+  plugins: ['vux-ui', 'progress-bar', 'duplicate-style']
+})

@@ -1,6 +1,7 @@
 //注册时，vux必须放在 import Vue from 'vue'; 之前，否侧打包的体积非常大，估计是vux OR vue 抽风了
 import {AlertPlugin, LoadingPlugin, ToastPlugin} from 'vux'
 import Vue from 'vue';
+import extend from 'extend';
 
 //------ VUX UI 注册，如果不需要  VUX UI 请删除以下注册 -------
 Vue.use(AlertPlugin); //全局注册alert事件，注册之后，不需要每个页面都import alert
@@ -35,7 +36,7 @@ var Rxports = {
 			method: opts.type || 'post',
 			// `baseURL` 将自动加在 `url` 前面，除非 `url` 是一个绝对 URL。
   			// 它可以通过设置一个 `baseURL` 便于为 axios 实例的方法传递相对 URL
-			baseURL:'http://t.lanchenglv.com/tp5demo/index.php/',
+			baseURL:'',
 			url: opts.url,
 			params: opts.data || {},
 			headers: opts.headers || {
@@ -97,5 +98,24 @@ var Rxports = {
 		return "";
 	}
 };
+
+/**
+  * 图片加载，图片路径拼接
+  * @param e 	     当前DOM对象
+*/
+Vue.prototype.loadImg = function (e) {
+	var resourcePath = ''; //图片资源根路径
+    var obj = e.target;
+    if (obj.getAttribute('data-loaded') || !obj.getAttribute('data-src')) return;
+    var image_url = obj.getAttribute('data-src');
+    if (!image_url.match(/^(?:http|ftp|https):\/\//) && image_url.indexOf('.')) {
+        image_url = resourcePath + image_url;
+    }
+    obj.setAttribute('data-loaded', true); //标记成功
+    // obj.src = image_url;
+    obj.classList.add('anim-opacity'); //渐变动画
+    obj.classList.add('img-cover');
+    obj.style.backgroundImage = "url(" + image_url + ")";
+}
 
 export default Rxports;
